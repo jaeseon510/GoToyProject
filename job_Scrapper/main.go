@@ -1,6 +1,9 @@
 package main
 
-import "log"
+import (
+	"log"
+	"net/http"
+)
 
 var baseurl string = "https://www.youtube.com/?app=desktop&hl=ko&gl=KR"
 
@@ -9,7 +12,7 @@ func main() {
 }
 
 func getPages() int {
-	res, err := http.get(baseurl)
+	res, err := http.Get(baseurl)
 	if err != nil {
 		log.Fatalln(err)
 	}
