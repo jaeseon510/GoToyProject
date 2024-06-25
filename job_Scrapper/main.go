@@ -20,7 +20,7 @@ func main() {
 
 	e.POST("/scrape", handlerScrape)
 	// Start server
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":1223"))
 }
 
 // Handler
@@ -35,7 +35,7 @@ func hello(c echo.Context) error {
     	<title>Go Jobs</title>
   	</head>
   	<body>
-    	<h1>Go Jobs</h1>W
+    	<h1>Go Jobs</h1>
     	<form method="POST" action="/scrape">
       		<input placeholder="what job do you want" name="term" />
       	<button>Search</button>
@@ -48,7 +48,7 @@ func hello(c echo.Context) error {
 
 func handlerScrape(c echo.Context) error {
 	defer os.Remove(fileName)
-	term := strings.ToLower(scrapper.ClaanString(c.FormValue("term")))
+	term := strings.ToLower(scrapper.CleanString(c.FormValue("term")))
 	scrapper.Scrape(term)
 	return c.Attachment(fileName, fileName)
 }
