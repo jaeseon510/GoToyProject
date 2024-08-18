@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/nomadcoders/nomadcoin/blockchain"
+	"github.com/jaeseon510/GoToyProject/blockchain"
 )
 
 func main() {
